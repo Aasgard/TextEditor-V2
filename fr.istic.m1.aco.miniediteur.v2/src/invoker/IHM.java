@@ -23,6 +23,10 @@ public class IHM extends JFrame{
 	private Command coller;
 	private Command effacer;
 	
+	private Command enregistrer;
+	private Command stop;
+	private Command rejouer;
+	
 	public IHM(){
 		this.setTitle("Editeur de texte - V1");
 		this.setSize(new Dimension(800, 500));
@@ -58,18 +62,22 @@ public class IHM extends JFrame{
 		lesBoutons.add(bColler);
 		
 		Bouton bEnregistrer = new Bouton("Enregistrer", enregistrer);
-		bEnregistrer.setBounds(10, 10, 90, 30);
+		bEnregistrer.setBounds(470, 10, 120, 30);
 		lesBoutons.add(bEnregistrer);
 		Bouton bStop = new Bouton("Stop", stop);
-		bStop.setBounds(10, 10, 90, 30);
+		bStop.setBounds(600, 10, 90, 30);
 		lesBoutons.add(bStop);
 		Bouton bRejouer = new Bouton("Rejouer", rejouer);
-		bRejouer.setBounds(10, 10, 90, 30);
+		bRejouer.setBounds(700, 10, 90, 30);
 		lesBoutons.add(bRejouer);
 		
 		this.add(bCopier);
 		this.add(bColler);
 		this.add(bCouper);
+		
+		this.add(bEnregistrer);
+		this.add(bStop);
+		this.add(bRejouer);
 	}
 	
 	public void launch(){
