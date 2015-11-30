@@ -3,7 +3,10 @@ package command;
 import invoker.IHM;
 import receiver.MoteurEdition;
 
-public class Saisir extends Command {
+public class Saisir implements Command {
+	
+	protected MoteurEdition me;
+	protected IHM ihm;
 
 	public Saisir(MoteurEdition moteure,IHM ihmn){
 		me = moteure;

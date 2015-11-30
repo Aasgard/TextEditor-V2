@@ -3,8 +3,11 @@ package command;
 import invoker.IHM;
 import receiver.MoteurEdition;
 
-public class Selectionner extends Command {
+public class Selectionner implements Command {
 
+	protected MoteurEdition me;
+	protected IHM ihm;
+	
 	public Selectionner(MoteurEdition moteure, IHM newihm){
 		this.me = moteure;
 		this.ihm = newihm;

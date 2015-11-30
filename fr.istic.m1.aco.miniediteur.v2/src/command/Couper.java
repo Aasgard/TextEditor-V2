@@ -2,8 +2,10 @@ package command;
 
 import receiver.MoteurEdition;
 
-public class Couper extends Command {
+public class Couper implements Command {
 
+	protected MoteurEdition me;
+	
 	public Couper(MoteurEdition moteure){
 		me = moteure;
 	}

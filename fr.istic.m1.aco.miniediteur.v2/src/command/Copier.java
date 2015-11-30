@@ -2,7 +2,9 @@ package command;
 
 import receiver.MoteurEdition;
 
-public class Copier extends Command {
+public class Copier implements Command {
+	
+	protected MoteurEdition me;
 
 	public Copier(MoteurEdition moteure){
 		me = moteure;

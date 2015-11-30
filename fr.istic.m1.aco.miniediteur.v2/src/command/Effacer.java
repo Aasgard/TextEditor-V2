@@ -2,7 +2,9 @@ package command;
 
 import receiver.MoteurEdition;
 
-public class Effacer extends Command {
+public class Effacer implements Command {
+	
+	protected MoteurEdition me;
 	
 	public Effacer(MoteurEdition newem){
 		me = newem;

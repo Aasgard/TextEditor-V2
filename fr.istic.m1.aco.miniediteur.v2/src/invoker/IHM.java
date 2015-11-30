@@ -28,7 +28,7 @@ public class IHM extends JFrame{
 	private Command rejouer;
 	
 	public IHM(){
-		this.setTitle("Editeur de texte - V1");
+		this.setTitle("Editeur de texte - V2");
 		this.setSize(new Dimension(800, 500));
 		this.setDefaultCloseOperation(EXIT_ON_CLOSE);
 		this.setLocationRelativeTo(null);
@@ -110,6 +110,13 @@ public class IHM extends JFrame{
 		if (this.saisir == null) throw new Exception("commande \"saisir\" manquante");
 		this.effacer = h.get("effacer");
 		if (this.effacer == null) throw new Exception("commande \"effacer\" manquante");
+		
+		this.enregistrer = h.get("enregistrer");
+		if (this.enregistrer == null) throw new Exception("commande \"enregistrer\" manquante");
+		this.stop = h.get("stop");
+		if (this.stop == null) throw new Exception("commande \"stop\" manquante");
+		this.rejouer = h.get("rejouer");
+		if (this.rejouer == null) throw new Exception("commande \"rejouer\" manquante");
 	}
 	
 }
