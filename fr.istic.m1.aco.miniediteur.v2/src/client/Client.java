@@ -2,8 +2,10 @@ package client;
 
 import java.util.HashMap;
 
+import caretaker.Enregistreur;
 import command.*;
 import observer.IHMObserver;
+import originator.*;
 import receiver.MoteurEdition;
 
 public class Client {
@@ -11,10 +13,21 @@ public class Client {
 	private static MoteurEdition me;
 	private static IHMObserver ihmo;
 	private static HashMap<String, Command> commandes;
+	private static Enregistreur enregistreur;
+	private static HashMap<String, CommandEnregistrable> commandesEnregistrables;
 	
 	public static void main(String[] args) throws Exception {
 		me = new MoteurEdition();
 		ihmo = new IHMObserver(me);
+		
+		enregistreur = new Enregistreur();
+		
+		CouperEnregistrable couper = new CouperEnregistrable(me, enregistreur);
+		CopierEnregistrable copier = new CopierEnregistrable(me, enregistreur);
+		CollerEnregistrable coller = new CollerEnregistrable(me, enregistreur);
+		SaisirEnregistrable saisir = new SaisirEnregistrable(me, ihmo, enregistreur);
+		SelectionnerEnregistrable selectionner =  new SelectionnerEnregistrable(me, ihmo, enregistreur);
+		EffacerEnregistrable effacer = new EffacerEnregistrable(me, enregistreur);
 		
 		commandes = new HashMap<String, Command>();
 		commandes.put("couper", new Couper(me));
@@ -23,6 +36,18 @@ public class Client {
 		commandes.put("copier", new Copier(me));
 		commandes.put("effacer", new Effacer(me));
 		commandes.put("selectionner", new Selectionner(me, ihmo));
+		commandes.put("enregistrer", new Enregistrer(enregistreur));
+		commandes.put("stop", new Stop(enregistreur));
+		commandes.put("rejouer", new Rejouer(enregistreur));
+		
+		commandesEnregistrables = new HashMap<String, CommandEnregistrable>();
+		commandesEnregistrables.put("couper", couper);
+		commandesEnregistrables.put("copier", copier);
+		commandesEnregistrables.put("coller", coller);
+		commandesEnregistrables.put("saisir", saisir);
+		commandesEnregistrables.put("selectionner", selectionner);
+		commandesEnregistrables.put("effacer", effacer);
+		enregistreur.setCommandesEnregistrable(commandesEnregistrables);
 		
 		ihmo.setCommands(commandes);
 		me.registerObserver(ihmo);

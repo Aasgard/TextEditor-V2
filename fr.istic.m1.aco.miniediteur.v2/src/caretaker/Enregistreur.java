@@ -40,6 +40,8 @@ public class Enregistreur {
 				String test = commandMemento.getClass().toString().substring(21);
 				test = test.substring(0, 1).toLowerCase() + test.substring(1);
 				commandesEnregistrable.get(test).setMemento(commandMemento);
+				System.out.println(test);
+				System.out.println("!!!!!!!!!!!!!!!!!!!!!!!!!!! Je rejoue !!!!!!!!!!!!!!!!!!!!!!!");
 			}
 		}
 	}
@@ -48,11 +50,13 @@ public class Enregistreur {
 		listCommandMemento.clear();
 		actif = true;
 		System.out.println("!!!!!!!!!!!!!!!!!!!!!!!!!!! J'enregistre !!!!!!!!!!!!!!!!!!!!!!!");
+		System.out.println(this.actif);
 	}
 	
 	public void stopperEnr(){
 		actif = false;
 		System.out.println("!!!!!!!!!!!!!!!!!!!!!!!!!!! J'ai stoppé l'enregistrement !!!!!!!!!!!!!!!!!!!!!!!");
+		System.out.println(this.actif);
 	}
 	
 	public void setCommandesEnregistrable(HashMap<String, CommandEnregistrable> h)
@@ -69,8 +73,6 @@ public class Enregistreur {
 			throw new Exception("commande \"selectionner\" manquante");
 		if (h.get("effacer") == null)
 			throw new Exception("commande \"effacer\" manquante");
-		if (h.get("supprimer") == null)
-			throw new Exception("commande \"supprimer\" manquante");
 		commandesEnregistrable = h;
 	}
 	
