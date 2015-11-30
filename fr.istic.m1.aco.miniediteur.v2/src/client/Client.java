@@ -30,12 +30,12 @@ public class Client {
 		EffacerEnregistrable effacer = new EffacerEnregistrable(me, enregistreur);
 		
 		commandes = new HashMap<String, Command>();
-		commandes.put("couper", new Couper(me));
-		commandes.put("saisir", new Saisir(me, ihmo));
-		commandes.put("coller", new Coller(me));
-		commandes.put("copier", new Copier(me));
-		commandes.put("effacer", new Effacer(me));
-		commandes.put("selectionner", new Selectionner(me, ihmo));
+		commandes.put("couper", couper);
+		commandes.put("saisir", saisir);
+		commandes.put("coller", coller);
+		commandes.put("copier", copier);
+		commandes.put("effacer", effacer);
+		commandes.put("selectionner", selectionner);
 		commandes.put("enregistrer", new Enregistrer(enregistreur));
 		commandes.put("stop", new Stop(enregistreur));
 		commandes.put("rejouer", new Rejouer(enregistreur));
@@ -47,8 +47,8 @@ public class Client {
 		commandesEnregistrables.put("saisir", saisir);
 		commandesEnregistrables.put("selectionner", selectionner);
 		commandesEnregistrables.put("effacer", effacer);
-		enregistreur.setCommandesEnregistrable(commandesEnregistrables);
 		
+		enregistreur.setCommandesEnregistrable(commandesEnregistrables);
 		ihmo.setCommands(commandes);
 		me.registerObserver(ihmo);
 		

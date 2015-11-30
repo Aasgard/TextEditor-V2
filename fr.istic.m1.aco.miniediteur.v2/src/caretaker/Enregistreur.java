@@ -35,12 +35,12 @@ public class Enregistreur {
 	
 	public void rejouer(){
 		if(!actif){
+			System.out.println(listCommandMemento.size());
 			for(Memento commandMemento : listCommandMemento){
 				System.out.println(commandMemento.getClass().toString());
 				String test = commandMemento.getClass().toString().substring(21);
 				test = test.substring(0, 1).toLowerCase() + test.substring(1);
 				commandesEnregistrable.get(test).setMemento(commandMemento);
-				System.out.println(test);
 				System.out.println("!!!!!!!!!!!!!!!!!!!!!!!!!!! Je rejoue !!!!!!!!!!!!!!!!!!!!!!!");
 			}
 		}
