@@ -16,6 +16,15 @@ public class Client {
 	private static Enregistreur enregistreur;
 	private static HashMap<String, CommandEnregistrable> commandesEnregistrables;
 	
+	/**
+	 * Classe principale de lancement.
+	 * Création d'un MoteurEdition et de l'IHM avec le ME en paramètre (attribution).
+	 * Création d'un enregistreur.
+	 * Création des commandes ainsi que des commandes enregistrables
+	 * @param args : Paramètre de base
+	 * @throws Exception : Exception lancée si erreur
+	 */
+	
 	public static void main(String[] args) throws Exception {
 		me = new MoteurEdition();
 		ihmo = new IHMObserver(me);

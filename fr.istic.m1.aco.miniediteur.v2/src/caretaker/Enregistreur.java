@@ -13,26 +13,42 @@ public class Enregistreur {
 	private List<Memento> listCommandMemento;
 	private HashMap<String, CommandEnregistrable> commandesEnregistrable;
 	
+	/**
+	 * Constructeur de l'Enregistreur.
+	 * Initialise la liste des Commandes Memento
+	 * Ainsi que les commandes enregistrables.
+	 */
 	public Enregistreur(){
 		this.listCommandMemento = new ArrayList<Memento>();
 		this.commandesEnregistrable = new HashMap<String, CommandEnregistrable>();
 	}
 	
+	/**
+	 * Ajoute le Memento passé en paramètre à la liste des Commandes Memento de l'Enregistreur.
+	 * @param memento
+	 */
 	public void addMemento(Memento memento){
 		System.out.println(memento);
 		this.listCommandMemento.add(memento);
 	}
 	
-	public Memento restoreCommand(int index){
-		return this.listCommandMemento.get(index);
-	}
-	
+	/**
+	 * Enregistre la commande enregistrable si l'Enregistrement est actif.
+	 * Récupere son Memento puis l'ajoute à la liste des Commandes Memento de l'Enregistreur.
+	 * @param commandEnregistrable
+	 */
 	public void enregistrer(CommandEnregistrable commandEnregistrable){
 		if(actif){
 			addMemento(commandEnregistrable.getMemento());
 		}
 	}
 	
+	/**
+	 * Permet de rejouer la listes des commandes enregistrables de l'enregistreur.
+	 * Si l'enregistrement n'est plus actif : 
+	 * On parcours la liste des commandes.
+	 * On récupère leur nom puis on appelle le setMemento de la classe correspondante.
+	 */
 	public void rejouer(){
 		if(!actif){
 			System.out.println(listCommandMemento.size());
@@ -46,6 +62,10 @@ public class Enregistreur {
 		}
 	}
 	
+	/**
+	 * Initialise la liste des commandes Memento.
+	 * Permet de lancer l'enregistrement des commandes.
+	 */
 	public void enregistrer(){
 		listCommandMemento.clear();
 		actif = true;
@@ -53,12 +73,20 @@ public class Enregistreur {
 		System.out.println(this.actif);
 	}
 	
+	/**
+	 * Permet de stopper l'enregistrement.
+	 */
 	public void stopperEnr(){
 		actif = false;
 		System.out.println("!!!!!!!!!!!!!!!!!!!!!!!!!!! J'ai stoppé l'enregistrement !!!!!!!!!!!!!!!!!!!!!!!");
 		System.out.println(this.actif);
 	}
 	
+	/**
+	 * Vérifie si les commandes enregistrables sont bien présente puis initialise les commandes enregistrables de l'Enregistreur.
+	 * @param HashMap<String, CommandEnregistrable> h
+	 * @throws Exception
+	 */
 	public void setCommandesEnregistrable(HashMap<String, CommandEnregistrable> h)
 			throws Exception {
 		if (h.get("couper") == null)
