@@ -4,7 +4,6 @@ public class MementoSaisir implements Memento {
 
 	private String texte;
 	
-	
 	/**
 	 * Constructeur du mementoSaisir.
 	 * @param texte

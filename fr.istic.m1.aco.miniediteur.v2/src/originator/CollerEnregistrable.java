@@ -42,7 +42,7 @@ public class CollerEnregistrable extends Coller implements CommandEnregistrable 
 	}
 
 	/**
-	 * Permet de rejouer la commande du Memento en appelant la fonctione execute de la classe mère : Coller.
+	 * Permet de rejouer la commande du Memento en appelant la fonction execute de la classe mère : Coller.
 	 * @param Memento
 	 */
 	@Override

@@ -82,6 +82,15 @@ public class Enregistreur {
 		System.out.println(this.actif);
 	}
 	
+	
+	/**
+	 * Retourne l'etat de l'enregistreur : si il est activé ou non
+	 * @return boolean
+	 */
+	public boolean getActif(){
+		return this.actif;
+	}
+	
 	/**
 	 * Vérifie si les commandes enregistrables sont bien présente puis initialise les commandes enregistrables de l'Enregistreur.
 	 * @param HashMap<String, CommandEnregistrable> h

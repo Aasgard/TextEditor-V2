@@ -25,6 +25,13 @@ public class TextArea extends JTextArea {
 	private char dernierCar;
 	private boolean changementPosition;
 	
+	/**
+	 * Constructeur de la classe TextArea.
+	 * Récupération des commandes du paramètre.
+	 * Initialisation du composant avec son comportement (CarretListener, MouseListener ...).
+	 * 
+	 * @param comm : HM de String,Command avec le nom de la comande et l'objet Command asssocié.
+	 */
 	public TextArea(HashMap<String, Command> comm) {
 
 		final Command selectionner = comm.get("selectionner");
@@ -108,32 +115,63 @@ public class TextArea extends JTextArea {
 		});
 	}
 	
+	/**
+	 * Récupération du début de la sélection.
+	 * @return : début de la sélection (int)
+	 */
 	public int getDebutSelection() {
 		return debutSelection;
 	}
 
+	/**
+	 * Récupération de la longueur de la sélection.
+	 * @return : longueur de la sélection (int)
+	 */
 	public int getLongueurSelection() {
 		return longueurSelection;
 	}
 
+	/**
+	 * Change la sélection courante. Début et longueur.
+	 * @param debut : nouvelle valeur début de Sélection
+	 * @param longueur : nouvelle valeur longueur de Sélection
+	 */
 	public void setSelection(int debut, int longueur) {
 		debutSelection = debut;
 		longueurSelection = longueur;
 	}
-
+	
+	/**
+	 * Retourne le texte dans le TextArea
+	 * @return  : texte, String contenue dans le TextArea
+	 */
 	public String getTexte() {
 		return texte;
 	}
 
+	/**
+	 * Change le texte contenu dans la TextArea.
+	 * @param texte : Texte passé au TextArea.
+	 */
 	public void setTexte(String texte) {
 		this.texte = texte;
 		this.setText(texte);
 	}
 
+	/**
+	 * Retourne le dernier caractère tapé dans le TextArea.
+	 * @return : Character tapé en dernier dans le TextArea.
+	 */
 	public char getDernierCar() {
 		return dernierCar;
 	}
 	
+	/**
+	 * Refresh des informations du TextArea.
+	 * @param texte : String paramètre passé au TA
+	 * @param start : début de la sélection
+	 * @param lg : longueur de la sélection
+	 */
 	public void rafraichir(String texte, int start, int lg) {
 		this.setTexte(texte);
 		this.setSelectionStart(start);
@@ -141,10 +179,18 @@ public class TextArea extends JTextArea {
 		this.setSelection(start, lg);
 	}
 
+	/**
+	 * Détecte un changement de position dans la sélection.
+	 * @return : changement de position ou non dans la sélection.
+	 */
 	public boolean getChangementPosition() {
 		return changementPosition;
 	}
 
+	/**
+	 * Change le paramètre permettant de connaitre le changement de position.
+	 * @param changementPosition : boolean, nouveau paramètre.
+	 */
 	public void setChangementPosition(boolean changementPosition) {
 		this.changementPosition = changementPosition;
 	}
