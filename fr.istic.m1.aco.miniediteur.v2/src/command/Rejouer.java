@@ -16,7 +16,7 @@ public class Rejouer implements Command {
 	
 	
 	/**
-	 * Appel la fonction rejouer().
+	 * Appelle la fonction rejouer().
 	 */
 	@Override
 	public void execute() {

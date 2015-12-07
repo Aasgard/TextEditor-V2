@@ -25,7 +25,7 @@ public class Enregistreur {
 	
 	/**
 	 * Ajoute le Memento passé en paramètre à la liste des Commandes Memento de l'Enregistreur.
-	 * @param memento
+	 * @param memento : memento paramètre
 	 */
 	public void addMemento(Memento memento){
 		System.out.println(memento);
@@ -35,7 +35,7 @@ public class Enregistreur {
 	/**
 	 * Enregistre la commande enregistrable si l'Enregistrement est actif.
 	 * Récupere son Memento puis l'ajoute à la liste des Commandes Memento de l'Enregistreur.
-	 * @param commandEnregistrable
+	 * @param commandEnregistrable : Une commande enregistrable
 	 */
 	public void enregistrer(CommandEnregistrable commandEnregistrable){
 		if(actif){
@@ -93,8 +93,8 @@ public class Enregistreur {
 	
 	/**
 	 * Vérifie si les commandes enregistrables sont bien présente puis initialise les commandes enregistrables de l'Enregistreur.
-	 * @param HashMap<String, CommandEnregistrable> h
-	 * @throws Exception
+	 * @param h : Un HM de commande
+	 * @throws Exception : Exception lancée
 	 */
 	public void setCommandesEnregistrable(HashMap<String, CommandEnregistrable> h)
 			throws Exception {

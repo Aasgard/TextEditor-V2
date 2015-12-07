@@ -14,7 +14,7 @@ public class Stop implements Command {
 		this.enregistreur = enregistreur;
 	}
 	/**
-	 * Appel la fonction stopperEnr().
+	 * Appelle la fonction stopperEnr().
 	 */
 	@Override
 	public void execute() {
